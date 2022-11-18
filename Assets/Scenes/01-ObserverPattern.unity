@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 937164914}
   - component: {fileID: 937164913}
   m_Layer: 0
-  m_Name: ObserverExample
+  m_Name: 01-ObserverExample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

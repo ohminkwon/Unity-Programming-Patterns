@@ -11,22 +11,30 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
-        ResetHealth();
+        ResetHealth(); // Initiallize HP
         StartCoroutine(DrainHealth());
     }
 
-    public void ResetHealth()
+    private void OnEnable()
+    {
+        GetComponent<Level>().onLevelUpAction += ResetHealth;
+    }
+    private void OnDisable()
+    {
+        GetComponent<Level>().onLevelUpAction -= ResetHealth;
+    }
+
+    private void ResetHealth()
     {
         currentHealth = maxHealth;
-    }
-    
+    }    
     private IEnumerator DrainHealth()
     {
         while (currentHealth > 0)
         {
             currentHealth -= drainPerSecond;
             yield return new WaitForSeconds(1); 
-        }     
+        }
     }
 
     public float GetHealth()
